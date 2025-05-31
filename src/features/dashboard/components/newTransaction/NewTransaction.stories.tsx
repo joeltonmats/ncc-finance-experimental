@@ -12,7 +12,13 @@ export default meta;
 type Story = StoryObj<typeof NewTransaction>;
 
 const TransactionWrapper = () => {
-  const [balance, setBalance] = useState(5000);
+  const [balance, setBalance] = useState({
+    id: "cmb8eq2yu000avngkg26r093g",
+    userId: "cmb8eq2yt0008vngkgjrfbp9m",
+    accountType: "checking",
+    amount: 7756.26,
+    currency: "BRL",
+  });
   return <NewTransaction balance={balance} setBalance={setBalance} />;
 };
 
