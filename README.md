@@ -184,8 +184,9 @@ ncc-finance/
 
 ## External Links
 
-- **[Video Demo](https://google.com)**
+- **[Video Demo]([https://youtu.be/UGIQPmgKfcw])**
 - **[Figma Design](https://www.figma.com/design/Z8ArLKonyv79d1eJIG6aE6/NCC-v.1?node-id=12085-1622&m=dev&t=V5sTdCtx3KMC54AK-1)**
+  
 
 ## Contributors
 
