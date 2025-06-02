@@ -1,6 +1,6 @@
 {
   "name": "ncc-finance",
-  "version": "1.0.0-alpha.11",
+  "version": "1.0.0-final.1",
   "private": true,
   "engines": {
     "node": ">=18.0.0"

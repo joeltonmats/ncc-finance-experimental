@@ -4,7 +4,7 @@ import WelcomeCard from "@/components/WelcomeCard/WelcomeCard";
 import NewTransaction from "../newTransaction/newTransaction";
 import React, { useState } from "react";
 import TransactionList from "@/components/Transactions/TransactionList/TransactionList";
-import { Balance } from "@/models/balance";
+import { Balance } from "@/types/balance";
 
 interface DesktopLayoutProps {
   userName: string;

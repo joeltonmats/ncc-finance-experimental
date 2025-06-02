@@ -8,11 +8,12 @@ import {
 } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { NumericFormat, NumberFormatValues } from "react-number-format";
-import { Balance } from "@/models/balance";
+
 import { TransactionTypeEnum, TransactionTypeLabels } from "@/types";
 import { translateTransactionType } from "@/helpers";
 import toast from "react-hot-toast";
 import "./newTransaction.css"; // Import the CSS file for styling
+import { Balance } from "@/types/balance";
 
 interface NewTransactionProps {
   balance: Balance;
@@ -75,6 +76,7 @@ export default function NewTransaction({
             : "";
 
       if (balanceUrl) {
+        console.log("newTransaction body:", { amount: valueNumber });
         await fetch(`/api/back/balance/${userBalance.id}/${balanceUrl}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -101,7 +103,6 @@ export default function NewTransaction({
 
       setTransactionType(null);
       setValor("");
-      setTimeout(() => window.location.reload(), 1000);
     } catch (error) {
       console.error("Erro ao criar transação:", error);
       toast.error("Erro ao criar transação.");

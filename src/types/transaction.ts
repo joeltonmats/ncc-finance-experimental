@@ -9,3 +9,12 @@ export const TransactionTypeLabels: Record<TransactionTypeEnum, string> = {
   deposit: "Depósito",
   withdrawal: "Saque",
 };
+
+export interface Transaction {
+  id: string;
+  balanceId: string;
+  type: TransactionTypeEnum;
+  amount: number;
+  timestamp: Date;
+  description: string;
+}

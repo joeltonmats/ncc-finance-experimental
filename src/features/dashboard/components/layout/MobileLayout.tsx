@@ -2,7 +2,7 @@
 import WelcomeCard from "@/components/WelcomeCard/WelcomeCard";
 import NewTransaction from "../newTransaction/newTransaction";
 import React, { useState } from "react";
-import { Balance } from "@/models/balance";
+import { Balance } from "@/types/balance";
 import TransactionList from "@/components/Transactions/TransactionList/TransactionList";
 
 interface TabletLayoutProps {

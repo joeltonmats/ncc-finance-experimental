@@ -63,7 +63,7 @@ export default function DashboardHeader() {
           </div>
         </div>
 
-        {/* User Dropdown */}
+        {/* USer Dropdown */}
         <CustomMenu>
           <MenuButton className="flex items-center gap-2">
             <span className="hidden text-sm font-medium text-white md:inline">

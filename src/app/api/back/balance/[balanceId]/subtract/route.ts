@@ -10,14 +10,24 @@ import { subtractBalance } from "@/service/balanceService";
  * @throws {Error} If the balance ID is missing or if the amount is not a number.
  */
 export async function PATCH(
-  req: NextRequest,
+  reqsub: NextRequest,
   { params }: { params: Promise<{ balanceId: string }> }
 ) {
   const { balanceId } = await params;
+  console.log("patchSubtractAmountBalance called with balanceId:", balanceId);
   if (!balanceId) {
     return NextResponse.json({ error: "Missing balance ID" }, { status: 400 });
   }
-  const { amount } = await req.json();
+
+  if (!reqsub.body) {
+    return NextResponse.json(
+      { error: "Missing request body" },
+      { status: 400 }
+    );
+  }
+
+  const { amount } = await reqsub.json();
+
   if (typeof amount !== "number") {
     return NextResponse.json(
       { error: "Missing id or amount" },

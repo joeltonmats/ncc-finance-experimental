@@ -28,6 +28,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "types/next-auth.d.ts"
-  ],
+, "src/components/Transactions/TransactionEditModal/TransactionEditModal.tsx"  ],
   "exclude": ["node_modules"]
 }

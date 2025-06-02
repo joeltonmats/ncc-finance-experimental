@@ -7,3 +7,5 @@ export const useSession = () => ({
 });
 
 export const signOut = () => {};
+
+export const signIn = () => {};

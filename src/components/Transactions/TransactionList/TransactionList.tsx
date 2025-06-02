@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Balance } from "@/models/balance";
+import { Balance } from "@/types/balance";
 import { translateTransactionType } from "@/helpers";
 import { TransactionTypeEnum } from "@/types";
+import TransactionEditModal from "../TransactionEditModal/TransactionEditModal";
 
 interface TransactionListProps {
   balance: Balance;
+  disableSelection?: boolean;
 }
 interface Transaction {
   id: string;
@@ -25,9 +27,13 @@ interface RawTransaction {
   description: string | null;
 }
 
-export default function TransactionList({ balance }: TransactionListProps) {
+export default function TransactionList({
+  balance,
+  disableSelection,
+}: TransactionListProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedTxId, setSelectedTxId] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchTransactions() {
@@ -73,7 +79,20 @@ export default function TransactionList({ balance }: TransactionListProps) {
     if (balance?.id) {
       fetchTransactions();
     }
-  }, [balance?.id]);
+  }, [balance, balance?.id]);
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleTxClick = (txId: string) => {
+    console.log("Selected Transaction ID:", selectedTxId);
+    setSelectedTxId(txId);
+    setOpenModal(true);
+  };
+
+  const onClose = () => {
+    setSelectedTxId(null);
+    setOpenModal(false);
+  };
 
   return (
     <>
@@ -101,7 +120,15 @@ export default function TransactionList({ balance }: TransactionListProps) {
           </p>
         ) : (
           transactions.map((tx) => (
-            <div key={tx.id} className="relative mb-2 flex items-center">
+            <div
+              key={tx.id}
+              className="relative mb-2 flex cursor-pointer items-center rounded hover:bg-neutral-100"
+              onClick={() => {
+                if (!disableSelection) {
+                  handleTxClick(tx.id);
+                }
+              }}
+            >
               <div className="flex flex-1 flex-col">
                 <div className="text-brand-secondary text-xs font-medium">
                   {tx.month}
@@ -141,6 +168,17 @@ export default function TransactionList({ balance }: TransactionListProps) {
               </time>
             </div>
           ))
+        )}
+        {/* Modal para editar transação */}
+        {selectedTxId && (
+          <>
+            <TransactionEditModal
+              balanceId={balance.id}
+              transactionId={selectedTxId}
+              onClose={onClose}
+              isOpen={openModal}
+            />
+          </>
         )}
       </div>
     </>

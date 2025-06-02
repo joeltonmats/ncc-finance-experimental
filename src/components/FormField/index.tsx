@@ -1,8 +1,5 @@
-"use client";
-
-import React from "react";
-
 interface FormFieldProps {
+  id?: string; // Torna a prop id opcional
   label: string;
   type?: string;
   placeholder?: string;
@@ -13,6 +10,7 @@ interface FormFieldProps {
 }
 
 export default function FormField({
+  id,
   label,
   type = "text",
   placeholder = "",
@@ -27,12 +25,13 @@ export default function FormField({
         {label}
       </label>
       <input
+        id={id}
         type={type}
         placeholder={placeholder}
         className={`mt-1 w-full rounded-md border px-3 py-2 text-sm shadow-sm focus:ring-2 focus:outline-none ${
           hasError
             ? "border-red-500 ring-red-200"
-            : "focus:ring-brand-primary border-neutral-300"
+            : "border-brand-secondary focus:border-brand-primary focus:ring-brand-primary"
         }`}
         value={value}
         onChange={(e) => onChange(e.target.value)}

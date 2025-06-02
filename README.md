@@ -73,6 +73,16 @@ npm run prisma:db-reset
 
 Open [http://localhost:3000](http://localhost:3000) to view the app.
 
+## Storybook
+
+To run storybook
+
+```bash
+npm run storybook
+```
+
+Open [http://localhost:6006/](http://localhost:3000) to view the components.
+
 ## Project Structure
 
 ```
@@ -175,7 +185,7 @@ ncc-finance/
 ## External Links
 
 - **[Video Demo](https://google.com)**
-- **[Figma Design](https://google.com)**
+- **[Figma Design](https://www.figma.com/design/Z8ArLKonyv79d1eJIG6aE6/NCC-v.1?node-id=12085-1622&m=dev&t=V5sTdCtx3KMC54AK-1)**
 
 ## Contributors
 

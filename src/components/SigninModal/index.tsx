@@ -1,7 +1,7 @@
 "use client";
 
 import { ROUTE_CONSTANTS } from "@/constants";
-import { signIn } from "next-auth/react";
+
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ import validator from "validator";
 import AuthModalWrapper from "../AuthModalWrapper";
 import AuthModalHeader from "../AuthModalHeader";
 import FormField from "../FormField";
+import { signIn } from "next-auth/react";
 
 export default function SigninModal({
   isOpen,
